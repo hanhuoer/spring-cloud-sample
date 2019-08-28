@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: service-hi
+server:
+  port: 20002
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:20000/eureka/
