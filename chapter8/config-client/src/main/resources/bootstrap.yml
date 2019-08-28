@@ -1,0 +1,30 @@
+spring: 
+  application:
+    name: config-client
+  cloud:
+    config:
+      name: config-client
+      label: master
+      profile: dev
+      # 由以前的 http://localhost:20040 改为从服务中心取
+      discovery:
+        enabled: true
+        service-id: config-server
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+server:
+  port: 20050
+
+# 暴露点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:20000/eureka/
